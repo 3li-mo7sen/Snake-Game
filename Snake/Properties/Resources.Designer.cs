@@ -63,6 +63,16 @@ namespace Snake.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _switch {
+            get {
+                object obj = ResourceManager.GetObject("switch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Backgrond_for_start_page {
             get {
                 object obj = ResourceManager.GetObject("Backgrond for start page", resourceCulture);
@@ -116,6 +126,26 @@ namespace Snake.Properties {
         internal static System.Drawing.Bitmap grid_3 {
             get {
                 object obj = ResourceManager.GetObject("grid 3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap power_button {
+            get {
+                object obj = ResourceManager.GetObject("power-button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap power_button1 {
+            get {
+                object obj = ResourceManager.GetObject("power-button1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
