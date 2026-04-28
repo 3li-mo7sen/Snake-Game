@@ -118,22 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="arrows_16001998" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\arrows_16001998.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Backgrond for start page" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Backgrond for start page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="images" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\images.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grid 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\grid 3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrows_160019981" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\arrows_16001998.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grid 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\grid 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="grid 11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\grid 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="grid 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\grid 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Backgrond for start page1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Backgrond for start page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GOOOOOOOO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\GOOOOOOOO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="chicken" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\chicken.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Backgrond for start page" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Backgrond for start page2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Backgrond for start page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grid 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\grid 1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="grid 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\grid 3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
