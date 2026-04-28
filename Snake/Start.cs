@@ -55,6 +55,16 @@ namespace Snake
         private void Go_Click(object sender, EventArgs e)
         {
 
+          
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
             if (theme.BackgroundImage == null)
             {
                 MessageBox.Show("Please select a theme first!", "No Theme Selected",
@@ -69,9 +79,10 @@ namespace Snake
             s.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void pictureBox4_Click(object sender, EventArgs e)
         {
             Application.Exit();
+
         }
     }
 }

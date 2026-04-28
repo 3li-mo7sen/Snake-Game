@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Snake));
             this.lblScore = new System.Windows.Forms.Label();
             this.lblFood = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.lblFood)).BeginInit();
@@ -38,7 +39,7 @@
             this.lblScore.AutoSize = true;
             this.lblScore.Location = new System.Drawing.Point(12, 9);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(98, 21);
+            this.lblScore.Size = new System.Drawing.Size(124, 27);
             this.lblScore.TabIndex = 0;
             this.lblScore.Text = "Score: 0";
             // 
@@ -55,7 +56,7 @@
             // 
             // Snake
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Snake.Properties.Resources.grid_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -63,6 +64,7 @@
             this.Controls.Add(this.lblFood);
             this.Controls.Add(this.lblScore);
             this.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "Snake";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

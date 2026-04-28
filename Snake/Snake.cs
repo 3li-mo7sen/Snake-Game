@@ -116,7 +116,7 @@ namespace Snake
                 block.SizeMode = PictureBoxSizeMode.StretchImage;
                 block.BackColor = Color.Transparent;
 
-                block.ImageLocation = "D:\\GitHub\\Snake-Game\\Snake\\wall.png";
+                block.ImageLocation = "C:\\Users\\UG\\Documents\\GitHub\\Snake-Game\\Snake\\wall.png";
 
                 int r, c;
 
