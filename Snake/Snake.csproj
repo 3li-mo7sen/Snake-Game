@@ -108,5 +108,8 @@
   <ItemGroup>
     <None Include="Images\grid 3.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="wall.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
