@@ -7,12 +7,21 @@ namespace Snake
 {
     public partial class Snake : Form
     {
+        private void Snake_Resize(object sender, EventArgs e)
+        {
+            
+            rows = this.ClientSize.Height / Cell;
+            cols = this.ClientSize.Width / Cell;
+            if (isRunning) return;
+
+            timer.Stop();
+            InitGame();
+            timer.Start();
+        }
         const int Cell = 20;
-
         int cols, rows;
-        int score = 0;
-        int speed = 150;
 
+        int score = 0;
         bool paused = false;
         bool isRunning = false;
 
@@ -22,14 +31,10 @@ namespace Snake
         LinkedList<Piece> snake = new LinkedList<Piece>();
         bool[,] visit;
 
-        List<PictureBox> obstacles = new List<PictureBox>();
-
         Random rand = new Random();
         Timer timer = new Timer();
 
-        Start st;
-
-        public Snake(Start st)
+        public Snake()
         {
             InitializeComponent();
             this.KeyPreview = true;
@@ -41,30 +46,15 @@ namespace Snake
 
             InitGame();
             LaunchTimer();
-
-            this.st = st;
         }
 
-        // ================= TIMER =================
         private void LaunchTimer()
         {
-            timer.Interval = speed;
+            timer.Interval = 150;
             timer.Tick += Move;
             timer.Start();
         }
 
-        // ================= RESIZE =================
-        private void Snake_Resize(object sender, EventArgs e)
-        {
-            rows = this.ClientSize.Height / Cell;
-            cols = this.ClientSize.Width / Cell;
-
-            timer.Stop();
-            InitGame();
-            timer.Start();
-        }
-
-        // ================= INIT GAME =================
         private void InitGame()
         {
             foreach (var p in snake)
@@ -72,18 +62,10 @@ namespace Snake
 
             snake.Clear();
 
-            foreach (var o in obstacles)
-                Controls.Remove(o);
-
-            obstacles.Clear();
-
             visit = new bool[rows, cols];
             score = 0;
             paused = false;
             isRunning = false;
-
-            speed = 150;
-            timer.Interval = speed;
 
             int startRow = rows / 2;
             int startCol = cols / 2;
@@ -97,64 +79,12 @@ namespace Snake
             dx = Cell; dy = 0;
             nextDx = Cell; nextDy = 0;
 
-            CreateObstacles();
             RandomFood();
 
             lblScore.Text = "Score: 0  |  SPACE = Pause  |  R = Restart";
             isRunning = true;
         }
 
-        // ================= OBSTACLES =================
-        private void CreateObstacles()
-        {
-            int count = 30;
-
-            for (int i = 0; i < count; i++)
-            {
-                PictureBox block = new PictureBox();
-                block.Size = new Size(3 * Cell, 3 * Cell);
-                block.SizeMode = PictureBoxSizeMode.StretchImage;
-                block.BackColor = Color.Transparent;
-
-                block.ImageLocation = "C:\\Users\\UG\\Documents\\GitHub\\Snake-Game\\Snake\\Properties\\wall.png";
-
-                int r, c;
-
-                do
-                {
-                    r = rand.Next(rows);
-                    c = rand.Next(cols);
-                }
-                while (visit[r, c]);
-
-                block.Location = new Point(c * Cell, r * Cell);
-
-                obstacles.Add(block);
-                Controls.Add(block);
-            }
-        }
-
-        private bool IsObstacle(int x, int y)
-        {
-            Rectangle snakeHead = new Rectangle(x, y, Cell, Cell);
-
-            foreach (var obs in obstacles)
-            {
-                Rectangle obstacleRect = new Rectangle(
-                    obs.Location.X,
-                    obs.Location.Y,
-                    obs.Width,
-                    obs.Height
-                );
-
-                if (snakeHead.IntersectsWith(obstacleRect))
-                    return true;
-            }
-
-            return false;
-        }
-
-        // ================= MOVE =================
         private void Move(object sender, EventArgs e)
         {
             if (!isRunning || paused) return;
@@ -162,7 +92,6 @@ namespace Snake
             dx = nextDx;
             dy = nextDy;
 
-            
             var head = snake.First.Value;
 
             int newX = head.Location.X + dx;
@@ -171,7 +100,7 @@ namespace Snake
             int maxX = cols * Cell;
             int maxY = rows * Cell;
 
-            // wrap
+            // Wrap around
             if (newX < 0) newX = maxX - Cell;
             if (newX >= maxX) newX = 0;
             if (newY < 0) newY = maxY - Cell;
@@ -180,16 +109,8 @@ namespace Snake
             int newRow = newY / Cell;
             int newCol = newX / Cell;
 
-            // hit wall
-            if (IsObstacle(newX, newY))
-            {
-                EndGame("Hit a wall!");
-                return;
-            }
-
             bool ateFood = IsFood(newX, newY);
 
-            // hit self
             if (visit[newRow, newCol])
             {
                 EndGame("Hit your own body!");
@@ -199,7 +120,7 @@ namespace Snake
             if (ateFood)
             {
                 score++;
-                lblScore.Text = $"Score: {score}";
+                lblScore.Text = $"Score: {score}  |  SPACE = Pause  |  R = Restart";
 
                 Piece newHead = new Piece(newX, newY);
                 snake.AddFirst(newHead);
@@ -209,12 +130,7 @@ namespace Snake
 
                 RandomFood();
 
-                // 🔥 SPEED INCREASE (FIXED)
-                speed = Math.Max(40, speed - 5);
-
-                timer.Stop();
-                timer.Interval = speed;
-                timer.Start();
+                timer.Interval = Math.Max(40, timer.Interval - 5);
             }
             else
             {
@@ -234,7 +150,6 @@ namespace Snake
             }
         }
 
-        // ================= INPUT =================
         private void Snake_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -263,27 +178,20 @@ namespace Snake
                 case Keys.R:
                     timer.Stop();
                     InitGame();
+                    timer.Interval = 150;
                     timer.Start();
                     break;
             }
         }
 
-        // ================= FOOD =================
         private void RandomFood()
         {
             List<int> free = new List<int>();
 
             for (int i = 0; i < rows; i++)
-            {
                 for (int j = 0; j < cols; j++)
-                {
-                    int x = j * Cell;
-                    int y = i * Cell;
-
-                    if (!visit[i, j] && !IsObstacle(x, y))
+                    if (!visit[i, j])
                         free.Add(i * cols + j);
-                }
-            }
 
             if (free.Count == 0)
             {
@@ -300,7 +208,6 @@ namespace Snake
             return x == lblFood.Location.X && y == lblFood.Location.Y;
         }
 
-        // ================= GAME OVER =================
         private void EndGame(string msg)
         {
             isRunning = false;
@@ -314,7 +221,7 @@ namespace Snake
 
             if (res == DialogResult.Yes)
             {
-                st.Show();
+                new Start().Show();
                 this.Close();
             }
             else

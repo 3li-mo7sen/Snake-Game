@@ -7,7 +7,6 @@ namespace Snake
     public partial class Start : Form
     {
         private Snake s;
-        PictureBox theme = new PictureBox();
 
         public Start()
         {
@@ -17,8 +16,8 @@ namespace Snake
         private void Start_Load(object sender, EventArgs e)
         {
             // Select first theme by default
-            //s = new Snake(this);
-            //HighlightSelected(theme1);
+            s = new Snake();
+            HighlightSelected(theme1);
         }
 
         private void HighlightSelected(PictureBox selected)
@@ -31,38 +30,33 @@ namespace Snake
 
         private void theme1_Click(object sender, EventArgs e)
         {
-
-            theme = theme1;
+            s = new Snake();
+            s.BackgroundImage = theme1.BackgroundImage;
             HighlightSelected(theme1);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
-            theme = pictureBox1;
-
+            s = new Snake();
+            s.BackgroundImage = pictureBox1.BackgroundImage;
             HighlightSelected(pictureBox1);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
-            theme = pictureBox2;
-
+            s = new Snake();
+            s.BackgroundImage = pictureBox2.BackgroundImage;
             HighlightSelected(pictureBox2);
         }
 
         private void Go_Click(object sender, EventArgs e)
         {
-            
-            if (theme.BackgroundImage == null)
+            if (s == null)
             {
                 MessageBox.Show("Please select a theme first!", "No Theme Selected",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            s = new Snake(this);
-            s.BackgroundImage = theme.BackgroundImage;
 
             this.Hide();
             s.FormClosed += (ss, ee) => this.Show(); // Return to menu when game closes
