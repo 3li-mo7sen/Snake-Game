@@ -107,7 +107,7 @@ namespace Snake
         // ================= OBSTACLES =================
         private void CreateObstacles()
         {
-            int count = 30;
+            int count = 15;
 
             for (int i = 0; i < count; i++)
             {
